@@ -1,0 +1,35 @@
+[project]
+name = "isi-project"
+version = "0.1.0"
+description = "Test project for ISI Technogoly"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django-cors-headers>=4.4.0",
+    "django-environ>=0.11.2",
+    "django-filter>=24.3",
+    "django-split-settings>=1.3.2",
+    "django>=5.1.1",
+    "djangorestframework-simplejwt>=5.3.1",
+    "djangorestframework>=3.15.2",
+    "drf-spectacular>=0.27.2",
+    "factory-boy>=3.3.0",
+    "faker>=29.0.0",
+    "psycopg2-binary>=2.9.9",
+    "uvicorn>=0.30.6",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pre-commit>=3.8.0",
+    "ruff>=0.6.7",
+]
+
+lint.ignore = [
+    "E402", "B905", "N818", "S101", "RUF003", "RUF012", "RUF002", "ISC001"
+]
+
+exclude = [
+    "*/migrations"
+]
+show-fixes = true

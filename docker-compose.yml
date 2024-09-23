@@ -1,0 +1,38 @@
+services:
+  isi_db:
+    image: postgres:15.2
+    container_name: isi_project_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+  isi_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: isi_project_app
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app/src/
+    env_file:
+      - .env
+    depends_on:
+      - isi_db
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
