@@ -143,4 +143,4 @@ dmypy.json
 cython_debug/
 db.sqlite3
 pgdata/
-.pyhon-version
+!/.python-version

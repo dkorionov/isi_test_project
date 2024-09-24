@@ -39,19 +39,24 @@ If you prefer setting up and running the project locally, follow these steps:
    ```bash
    python manage.py migrate
    ```
-7. Load the fixtures:
+7. Create a superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+8. Load the fixtures:
    ```bash
    python manage.py loaddata initial_data.json
    ```
-8. Run the development server:
+
+9. Run the development server:
    ```bash
    python manage.py runserver
    ```
-9. Optionally, run the tests:
+10. Optionally, run the tests:
    ```bash
    python manage.py test
    ```
-
 <p>  
 Swagger documentation will be available at http://localhost:8000/swagger/. <br> 
 You can also override /backand/isi_project/settings/local.py
@@ -82,6 +87,7 @@ By default it uses sqlite3 database.
     - apply migrations
     - create superuser
     - load fixtures
+
    ```bash
     make init
     ```
